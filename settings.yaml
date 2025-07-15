@@ -1,0 +1,79 @@
+audiocaps_dir: path/to/audiocaps
+audioset_dir: path/to/audioset
+soundve_dir: path/to/Sound-VEcaps
+
+# audioset metadata is assumed to be in this form: https://github.com/bakhtos/GoogleAudioSetReformatted
+audioset_meta_dir: path/to/GoogleAudioSetReformatted
+cache_dir: data/cache
+
+sample_rate: 16000
+n_fft: 512
+hop_length: 320
+n_mels: 64
+f_min: 50
+
+# list of texts to fit the tokenizer
+tokenizer_fit_files:
+  - path/to/captions_train_tokenizer.txt
+
+# tokenizer config
+vocab_size: 6000
+min_frequency: 2
+tokenizer_dir: data/tokenizer
+
+batch_size: 64
+num_dataloader_workers: 16
+
+n_epochs: 100
+
+#clip_grad_norm: 1.0
+#grad_acc_steps: 4
+log_interval: 20
+
+n_labels: 50
+
+crnn_multimodal:
+  learning_rate: 1.0e-3
+  batch_size: 256
+  n_epochs: 100
+  clip_grad_norm: 20.0
+  log_interval: 100
+
+  weak_proportion: 0.5
+  weak_pooling: panns
+
+  # cnn
+  dims: [32, 64, 128, 256, 256, 256]
+  poolings: [[2, 2], [2, 2], [2, 1], [2, 1], [2, 1], [2, 1]]
+  kernel_sizes: [3, 3, 3, 3, 3, 3]
+  cnn_dropout: 0.2
+
+  #global_loss_weighting: true
+  #batch_loss_weighting: true
+  data_resampling: true
+  spectrogram_mixing_param: 0.2
+
+  n_time_mask: 2
+  n_freq_mask: 2
+  time_mask_param: 50
+  freq_mask_param: 8
+
+  # tf: text
+  d_tf: 192
+  #n_text_enc_layers: 4
+  n_text_enc_layers: 6
+  n_text_enc_heads: 8
+  p_text_masking: 0.50
+  tf_dropout: 0.2
+
+  ca_dropout: 0.2
+
+  d_rnn: 128
+  n_rnn_layers: 2
+  rnn_dropout: 0.2
+
+  checkpoint_dir: data/ckpt-100ep/ckpt-mm-crnn
+  ignore_captions: false
+  caption_dropout: 0.50
+  #ignore_caption_epochs: 5
+
