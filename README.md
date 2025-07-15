@@ -1,8 +1,8 @@
 # SED with text
 
-## Code repository for the paper "Sound event detection with audio-text models and heterogeneous temporal annotations"
+## Code repository for "Sound event detection with audio-text models and heterogeneous temporal annotations"
 
-to run some data needs to be prepared:
+how to use:
 1. edit paths `settings.yaml`
 2. run `prepare_data.py` to create the mels & sound event data
 3. run `prepare_synthetic_captions.py` to tokenize training captions
