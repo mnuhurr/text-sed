@@ -8,4 +8,5 @@ to run some data needs to be prepared:
 3. run `prepare_synthetic_captions.py` to tokenize training captions
 4. run `prepare_splits.py` to create the train/val/test splits
 5. run `prepare_train_split_probs.py` to collect the reference data for data resampling (if using)
-6. run the training script
+6. run `train_multimodal.py` to train the model
+7. evaluate using `eval_multimodal.py` for overall results and `eval_tag.py` for erroneous tag injections
