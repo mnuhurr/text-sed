@@ -1,6 +1,6 @@
 # SED with text
 
-## Code repository for the paper "Sound event detection with audio-text models \\and heterogeneous temporal annotations"
+## Code repository for the paper "Sound event detection with audio-text models and heterogeneous temporal annotations"
 
 to run some data needs to be prepared:
 1. edit paths `settings.yaml`
